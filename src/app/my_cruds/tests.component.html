@@ -1,0 +1,35 @@
+<table [ngClass]="{'table':true}">
+  <tr>
+    <th>ID</th>
+    <th>ชื่อ</th>
+    <th>นามสกุล</th>
+    <th colspan="2">Actions</th>
+  </tr>
+  <tr *ngFor="let lst of resp">
+
+    <td>{{lst.id}}</td>
+    <td>{{lst.Firstname}}</td>
+    <td>{{lst.Lastname}}</td>
+    <td><button [ngClass]="{'btn btn-danger':true}" type="button" (click)='onDeletes(lst.id)'>
+      <span [ngClass]="{'text-dark':true}">
+      Delete
+      </span>
+    </button></td>
+    <td><button [ngClass]="{'btn btn-secondary':true}" (click)="onGetById(lst.id)" type="button"><span [ngClass]="{'text-dark':true}">Edits</span></button></td>
+
+  </tr>
+  <tr>
+
+    </tr>
+</table>
+<br>
+
+<form #f="ngForm" (ngSubmit)="onSubmits(f)" ngModel >
+  <input type="text" name="Firstname" placeholder="ชื่อ"  ngModel>
+  <br>
+  <input type="text" name="Lastname" placeholder="นามสกุล" ngModel>
+  <br>
+  <input type="submit" ngModel [ngClass]="{'btn btn-success':true}" >
+
+</form>
+
